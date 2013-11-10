@@ -1,0 +1,6 @@
+<h1>All Applications</h1>
+<ul>
+   <?php foreach ($this->entries as $entry): ?>
+   <li><a href="<?php echo $this->url(array('controller'=>'shortcuts','action'=>'index','id'=>$entry->id),'default',true)?>"><?php echo $this->escape($entry->name) ?></a></li>
+   <?php endforeach ?>
+</ul>

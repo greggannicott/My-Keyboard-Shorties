@@ -1,0 +1,38 @@
+<?php $this->placeholder('sidebar')->captureStart() ?>
+<legend>Actions</legend>
+<ul>
+   <?php
+   // Print out what the user can and can't do
+   $rights_count = 0; // Used to determine whether to print a message to state whether the user can or cannot perform a task
+   if ($this->acl->isAllowed($this->user,'applications','edit')) {
+      echo '<li><a href="'.$this->url(array('controller'=>'applications', 'action'=>'edit', 'id'=>$this->application->id),'default', true) .'">Edit Application Details</a></li>';
+      $rights_count++;
+   }
+   if ($this->acl->isAllowed($this->user,'shortcuts','add')) {
+      echo '<li><a href="'.$this->url(array('controller'=>'shortcuts', 'action'=>'add', 'id'=>$this->application->id),'default', true) .'">Add New Shortcut</a></li>';
+      $rights_count++;
+   }
+   if ($this->acl->isAllowed($this->user,'shortcuts','import')) {
+      echo '<li><a href="'.$this->url(array('controller'=>'shortcuts', 'action'=>'import', 'id'=>$this->application->id),'default', true) .'">Bulk Import Shortcuts</a></li>';
+      $rights_count++;
+   }
+   if ($this->acl->isAllowed($this->user,'shortcuts','export')) {
+      echo '<li><a href="'.$this->url(array('controller'=>'shortcuts', 'action'=>'export', 'id'=>$this->application->id),'default', true) .'">Export Shortcuts</a></li>';
+      $rights_count++;
+   }
+   if ($this->acl->isAllowed($this->user,'sections','add')) {
+      echo '<li><a href="'.$this->url(array('controller'=>'sections', 'action'=>'add', 'id'=>$this->application->id),'default', true) .'">Add new Sub-Section</a></li>';
+      $rights_count++;
+   }
+   if ($this->acl->isAllowed($this->user,'applications','delete')) {
+      echo '<li><a href="'.$this->url(array('controller'=>'applications', 'action'=>'delete', 'id'=>$this->application->id),'default', true) .'">Delete Application</a></li>';
+      $rights_count++;
+   }
+
+   // If the user is unable to perform any tasks, tell them
+   if ($rights_count == 0) {
+      echo '<li class="nodata">No Actions Available</li>';
+   }
+   ?>
+</ul>
+<?php $this->placeholder('sidebar')->captureEnd() ?>

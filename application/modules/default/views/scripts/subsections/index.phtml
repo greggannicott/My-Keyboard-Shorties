@@ -1,0 +1,7 @@
+<p><a href="<?php echo $this->url(array('controller'=>'subsections', 'action'=>'add', 'id'=>$this->application->id),'default', true) ?>">Add new Sub-Section</a></p>
+
+<dl>
+   <?php foreach ($this->entries as $entry): ?>
+   <dt><?php echo $this->escape($entry->name)?></dt>
+   <?php endforeach ?>
+</dl>

@@ -1,0 +1,11 @@
+<h1>Add New Shortcut</h1>
+<?php
+
+if ($this->subsection_count > 0) {
+   echo '<p>Please use the form below to add a new shortcut</p>';
+   $this->form->setAction($this->url());
+   echo $this->form;
+} else {
+   print '<p>Sorry, you are unable to add shortcuts until at least one <a href="'.$this->url(array('controller'=>'sections', 'action'=>'add', 'id'=>$this->application_id),'default', true).'">Sub-Section has been added</a>.';
+}
+?>

@@ -1,0 +1,43 @@
+<h1><?php echo $this->application->getName();?></h1>
+<table>
+<?php if (count($this->results) > 0): ?>
+   <?php foreach ($this->results as $entry): ?>
+   <tr>
+      <th colspan="2" class="section">
+         <?php echo $entry['name'] ?>
+      </th>
+   </tr>
+   <!-- Column Headings-->
+   <tr>
+      <th class="shortcut">Shortcut</th>
+      <th class="action">Command</th>
+   </tr>
+   <?php
+   if (count($entry['shortcuts']) > 0) {
+      foreach ($entry['shortcuts'] as $shortcut) {
+         print '<tr>';
+         if ($this->acl->isAllowed($this->user,'shortcutsfavorites','toggle')) {
+            // Determine the text to use for the fav button
+            $fav_class = null;
+            if (My_Plugin_ShortcutsFavorites::IsFavorite($shortcut['id'])) {
+               $fav_class = 'shortcuts_favorite_icon_on';
+            } else {
+               $fav_class = 'shortcuts_favorite_icon_off';
+            }
+            echo '<td class="shortcut"><span onclick="toggle_fav('.$shortcut['id'].')" class="'.$fav_class.'" id="fav_'.$shortcut['id'].'" style="cursor: pointer" title="Toggle as Favourite"></span> '.My_Plugin_Shortcut::ReturnShortcutPerOs($shortcut).'</td>';
+            echo '<td class="action">'.$shortcut['action'].'</td>';
+         } else {
+            echo '<td class="shortcut"> '.My_Plugin_Shortcut::ReturnShortcutPerOs($shortcut).'</td>';
+            echo '<td class="action">'.$shortcut['action'].'</td>';
+         }
+         print '</tr>';
+      }
+   } else {
+      print '<tr><td colspan="2">No Shortcuts</td></tr>';
+   }
+   ?>
+   <?php endforeach ?>
+<?php else: ?>
+   <span>No shortcuts have been added for this application.</span>
+<?php endif ?>
+</table>

@@ -1,0 +1,31 @@
+<h1>Import Shortcuts</h1>
+<p>Import complete! Detailed results of the import can be found in the sections below.</p>
+<p>If you don't have time to read that, you can see the results in action by visiting the <a href="<?php echo $this->url(array('controller'=>'shortcuts','action'=>'index','id'=>$this->application_id),'default',true); ?>">the application's page</a>...</p>
+<h2>Results of Import</h2>
+<h3>Shortcuts Added</h3>
+<p>The following shortcuts were added:</p>
+<ul>
+   <?php
+   if (count($this->shortcuts > 0)) {
+      foreach ($this->shortcuts as $shortcut) {
+         print '<li>'.$shortcut['action'].': '.$shortcut['shortcut'].'</li>';
+      }
+   } else {
+      print '<li>No shortcuts were added.</li>';
+   }
+   ?>
+</ul>
+
+<h3>Sections Created</h3>
+<p>The following sections did not exist and as a result have been created:</p>
+<ul>
+   <?php
+   if (count($this->sections_created) > 0) {
+      foreach ($this->sections_created as $section_name) {
+         print '<li>'.$section_name.'</li>';
+      }
+   } else {
+      print '<li>No new sections were required.</li>';
+   }
+   ?>
+</ul>

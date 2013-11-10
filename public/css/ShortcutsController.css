@@ -1,0 +1,52 @@
+table {
+   width: 100%;
+   border-collapse:collapse;
+}
+tr:hover {
+   color: blue;
+   cursor: default;
+}
+
+th {
+   background-color: silver;
+   text-align: left;
+   font-weight: normal;
+   padding: 6px;
+   background-color: #F0F0F0;
+}
+
+th.section {
+   font-weight: bold;
+   background-color: silver;
+}
+
+td {
+   padding: 6px;
+}
+
+.shortcut {
+   width: 30%;
+}
+
+.action {
+   width: 70%;
+}
+
+/*Definition lists*/
+
+dl {}
+
+dt {
+   font-weight: bold;
+   clear: left;
+   float: left;
+   width: 10em;
+   text-decoration: none;
+   font-size: 12px;
+
+}
+
+dd {
+   color: #585858;
+   font-size: 12px;
+}

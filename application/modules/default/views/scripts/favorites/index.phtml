@@ -1,0 +1,36 @@
+<h1>My Favorites</h1>
+<p>Below is a list of the shortcut's you've favorited. This page offers a one stop page to see all the shortcuts you find useful or wish to use more, but just need reminding.</p>
+
+<?php
+
+   // List the user's fav shortcuts here
+   if (count($this->favorites) > 0) {
+      foreach ($this->favorites as $application) {
+         print '<h2 class="application_name"><a href="'.$this->url(array('controller'=>'shortcuts','action'=>'index','id'=>$application['id']),'default',true).'">'.$application['name'].'</a></h2>';
+         print '<ul>';
+         foreach ($application['shortcuts'] as $shortcut) {
+            echo '<li>';
+            if ($this->acl->isAllowed($this->user,'shortcutsfavorites','toggle')) {
+               // Determine the text to use for the fav button
+               $fav_class = null;
+               if (My_Plugin_ShortcutsFavorites::IsFavorite($shortcut['id'])) {
+                  $fav_class = 'shortcuts_favorite_icon_on';
+               } else {
+                  $fav_class = 'shortcuts_favorite_icon_off';
+               }
+               echo $shortcut['action'].' ('.My_Plugin_Shortcut::ReturnShortcutPerOs($shortcut).') <span onclick="toggle_fav('.$shortcut['id'].')" class="'.$fav_class.'" id="fav_'.$shortcut['id'].'" style="cursor: pointer" title="Toggle as Favourite"></span>';
+            } else {
+               echo $shortcut['action'].' ('.My_Plugin_Shortcut::ReturnShortcutPerOs($shortcut).')';
+            }
+            echo '</li>';
+         }
+         print '</ul>';
+      }
+   } else {
+      print '<p class="nodata">Sorry, you have not added any favorites.</p>';
+      print '<h2>How do I add favorites?</h2>';
+      print '<p>To add a favorite, simply click the star next to the shortcut you wish to favorite. It will then be available on this page for easy reference.';
+   }
+
+
+?>

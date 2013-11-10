@@ -1,0 +1,38 @@
+<?php $this->placeholder('sidebar')->captureStart() ?>
+<legend>Site Menu</legend>
+<ul>
+<?php
+
+   // Pull in the ACL details as this has an impact on the options available to the user
+   $acl = Zend_Registry::get('acl');
+
+   // Create a user object. This will have a role id of 'guest' unless the user is logged in
+   $user = My_Plugin_User::ReturnUser();
+
+   // Print each menu item depending on the user's authorities
+   if ($acl->isAllowed($user,'applications','view')) {
+      print '<li><a href="'.$this->url(array('controller'=>'applications', 'action'=>'index'),'default', true).'">All Applications</a></li>';
+   }
+   if ($acl->isAllowed($user,'favorites','view')) {
+      print '<li><a href="'.$this->url(array('controller'=>'favorites', 'action'=>'index'),'default', true).'">My Favorite Shortcuts</a></li>';
+   }
+   if ($acl->isAllowed($user,'usersettings','edit')) {
+      print '<li><a href="'.$this->url(array('controller'=>'usersettings', 'action'=>'index'),'default', true).'">My Settings</a></li>';
+   }
+   if ($acl->isAllowed($user,'applications','add')) {
+      print '<li><a href="'.$this->url(array('controller'=>'applications', 'action'=>'add'),'default', true).'">Add New Application</a></li>';
+   }
+   if ($acl->isAllowed($user,'about','view')) {
+      print '<li><a href="'.$this->url(array('controller'=>'about', 'action'=>'index'),'default', true).'">About This Site</a></li>';
+   }
+   // Output the appropriate link depending on whether the user is logged in or not.
+   if (!Zend_Auth::getInstance()->hasIdentity()) {
+      print '<li><a href="'.$this->url(array('controller'=>'auth', 'action'=>'register'),'default', true).'">Register</a></li>';
+      print '<li><a href="'.$this->url(array('controller'=>'auth', 'action'=>'login'),'default', true).'">Login</a></li>';
+   } else {
+      print '<li><a href="'.$this->url(array('controller'=>'auth', 'action'=>'logout'),'default', true).'">Logout</a></li>';
+   }
+
+?>
+</ul>
+<?php $this->placeholder('sidebar')->captureEnd() ?>

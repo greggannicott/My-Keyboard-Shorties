@@ -1,0 +1,8 @@
+.application_name a {
+   text-decoration: none;
+   color: black;
+}
+
+.nodata {
+   color: red;
+}

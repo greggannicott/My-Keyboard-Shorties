@@ -1,0 +1,4 @@
+<h1>Delete Application</h1>
+<p>Are you sure you want to delete the application <b><?php echo $this->application->getName(); ?></b>?</p>
+
+[ <a href="<?php echo $this->url(array('controller'=>'applications','action'=>'delete','id'=>$this->application->getId(),'delete'=>'true'),'default',true)?>">Yes</a> ] [ <a href="<?php echo $this->url(array('controller'=>'applications','action'=>'index'),'default',true)?>">No</a> ]

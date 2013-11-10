@@ -1,0 +1,45 @@
+<html>
+   <body>
+      <h1>/api/applications/</h1>
+      <h2>HTTP Methods</h2>
+      <ul>
+         <li><a href="#GET">GET</a></li>
+         <li><a href="#POST">POST</a></li>
+         <li><a href="#PUT">PUT</a></li>
+         <li><a href="#DELETE">DELETE</a></li>
+      </ul>
+      <h2><a name="GET">GET</a></h2>
+      <h3>Description</h3>
+      <p>When an ID <u>is not</u> provided, this method returns a list of all applications which are available on Keyboard Shorties.</p>
+      <p>When an ID <u>is provided</u>, only details relevant to that application ID are returned.</p>
+      <h3>Parameters</h3>
+      <dl>
+         <dt>&amp;id={ID}</dt>
+         <dd>(optional) If an ID is provided, it returns the details regarding that specific application.</dd>
+         <dt>&amp;type={desktop|web}</dt>
+         <dd>(optional) Returns a list of either desktop applications or web applications.</dd>
+      </dl>
+      <h3>HTTP Response Codes</h3>
+      <p><i>At present the list below is not specific to this method but is just a general list that can be used in certain circumstances. Once you're happy with it, apply it to other methods and narrow the list down below so it only contains those that are appropriate.</i></p>
+      <dl>
+         <dt>200</dt><dd>Success (Content returned/data deleted/data updated)</dd>
+         <dt>201</dt><dd>The Application/Shortcut has been created.</dd>
+         <dt>404</dt><dd>The application ID you provided does not relate to an application in the database.</dd>
+         <dt>500</dt><dd>The server encountered an unexpected condition which prevented it from fulfilling the request.</dd>
+      </dl>
+      <h3>Example Usage & Responses</h3>
+      <h4>Retrieving details of all applications</h4>
+      <h5>Call using cURL</h5>
+      <pre>curl http://mks.gannicott.co.uk/api/applications/ --header "accept:application/xml"</pre>
+      <h5>Success Response</h5>
+      <?php
+         $response = '<?xml version="1.0"?><status></status><applications><application><id>1</id><name>UltraEdit v16</name><created>2010-05-27 11:32:47</created></application><application><id>4</id><name>Firefox 3.5/6</name><created>2010-05-28 15:55:26</created></application><application><id>5</id><name>Netbeans 6</name><created>2010-06-0114:42:41</created></application><application><id>7</id><name>Google Docs: Documents</name><created>2010-05-20 13:48:14</created></application><application><id>8</id><name>Google Docs: Spreadsheets</name><created>2010-05-20 13:48:32</created></application><application><id>9</id><name>Google Docs: Presentations</name><created>2010-05-20 13:48:44</created></application></applications><errors></errors>';
+      ?>
+      <pre class="example_response"><?php echo htmlentities($response);?></pre>
+      <h5>Error Response</h5>
+      <h4>Retrieving details of one application</h4>
+      <h2><a name="POST">POST</a></h2>
+      <h2><a name="PUT">PUT</a></h2>
+      <h2><a name="DELETE">DELETE</a></h2>
+   </body>
+</html>

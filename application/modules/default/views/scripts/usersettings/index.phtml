@@ -1,0 +1,14 @@
+<h1>My Settings</h1>
+<?php
+   if (count($this->messages) > 0) {
+      print '<span class="flashmessage">'.$this->messages[0].'</span>';
+   }
+?>
+<span id="settings">
+   <h2>Account</h2>
+   <dl>
+      <dt><a href="<?php echo $this->url(array('controller'=>'usersettings', 'action'=>'profile'),'default', true);?>">User Profile</a></dt><dd>Manage the details associated with your account.</dd>
+      <dt><a href="<?php echo $this->url(array('controller'=>'usersettings', 'action'=>'password'),'default', true);?>">Change Password</a></dt><dd>Give your Keyboard Shorties account a new password.</dd>
+      <dt><a href="<?php echo $this->url(array('controller'=>'usersettings', 'action'=>'site'),'default', true);?>">Site Settings</a></dt><dd>Configure how the site works for you.</dd>
+   </dl>
+</span>

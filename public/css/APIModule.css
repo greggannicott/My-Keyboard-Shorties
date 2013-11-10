@@ -1,0 +1,31 @@
+/*Definition lists*/
+
+dl {
+   margin-bottom: 0px;
+   margin-left: 10px;
+}
+
+dt {
+   font-weight: bold;
+   text-decoration: none;
+   font-size: 12px;
+   color: #585858;
+}
+
+dd {
+   color: #999999;
+   font-size: 12px;
+   margin-left: 10px;
+   margin-bottom: 7px;
+}
+
+pre {
+   border: 1px solid #bdbcbc;
+   background-color: #f4f2f2;
+   padding: 5px;
+}
+
+.example_response {
+   overflow: auto;
+   width: 600px;
+}

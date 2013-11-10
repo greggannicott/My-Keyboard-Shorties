@@ -1,0 +1,219 @@
+root { 
+    display: block;
+}
+
+body {
+   font-family: sans-serif;
+   margin: 5px;
+   padding: 0px;
+   background-color: #414141;
+   font-size: 12px;
+}
+
+p {
+   line-height: 1.5em;
+}
+
+/** Headings **/
+
+h1 {
+   font-size: 20px;
+   margin-top: 0px;
+}
+
+h2 {
+   font-size: 16px;
+   border-bottom: 1px dotted silver;
+}
+
+#container {
+   width: 970px;
+   margin: 0px auto;
+   background-color: white;
+   border: 1px solid black;
+   min-height: 700px;
+   -moz-border-radius: 15px;
+   -webkit-border-radius: 15px;
+   border-radius: 15px;
+}
+
+#container_inner {
+   padding: 30px;
+}
+
+#header {
+   margin-bottom: 10px;
+}
+
+#header #logo {
+   font-size: 32px;
+}
+
+#header #right_menu {
+   float: right;
+   margin-top: 10px;
+   font-size: 14px;
+}
+
+#breadcrumbs {
+   border-bottom: 0px solid black;
+   border-top: 1px solid #FF5706;
+   padding: 7px 0px 7px 7px;
+   margin-bottom: 10px;
+   background-color: #FFEBD7;
+   font-size: 12px;
+   font-weight: bold;
+   letter-spacing:1px;
+}
+
+/* main content */
+
+#content_outter {
+   position: relative;
+   width: 650px;
+   margin-left: 235px;
+   display: block;
+   padding: 0px;
+}
+
+#content_inner {
+   padding: 5px;
+   display: block;
+}
+
+#menu_outter {
+   position: absolute;
+   /*margin-left: 685px;*/
+   width: 225px;
+   display: block;
+   padding: 0px;
+}
+
+#menu_inner {
+   padding: 5px;
+   display: block;
+}
+
+#menu_inner ul {
+   padding-left: 5px;
+   margin-left: 0px;
+   list-style: none;
+}
+
+#menu_inner ul li:before {
+   content: none;
+}
+
+/* flash messages are used to print 'confirmation' of actions taken. */
+.flashmessage {
+   display: block;
+   font-weight: bold;
+   color: #59BB2F;
+}
+
+/** FAV ICONS **/
+
+.shortcuts_favorite_icon_on {
+   display: inline-block;
+   margin: 0px;
+   height: 15px;
+   width: 14px;
+   background: url(/images/shortcut_fav.gif) no-repeat;
+   vertical-align: bottom;
+}
+
+.shortcuts_favorite_icon_off {
+   display: inline-block;
+   height: 15px;
+   width: 14px;
+   background: url(/images/shortcut_not_fav.gif) no-repeat;
+   vertical-align: bottom;
+}
+
+/** FORM FIELDS **/
+
+label {
+   font-size: 15px;
+}
+
+input[type=text], input[type=password], select {
+   font-size: 16px;
+   font-family: "arial";
+   border: 1px solid gray;
+   padding: 5px;
+   -moz-border-radius: 5px;
+   -webkit-border-radius: 5px;
+   border-radius: 5px;
+   color: #00326F
+}
+
+input[type=submit] {
+   -moz-border-radius: 5px;
+   -webkit-border-radius: 5px;
+   border-radius: 5px;
+   border: 1px solid black;
+   padding: 5px;
+   font-size: 18px;
+}
+
+fieldset {
+   padding: 5px;
+   padding-top: 0px;
+   border: 1px solid;
+   border-color: #DDDDDD;
+   -moz-border-radius: 5px;
+   -webkit-border-radius: 5px;
+   border-radius: 5px;
+   background-color: #EEEEEE;
+   margin-bottom: 15px;
+}
+
+fieldset ul {
+   margin: 0px;
+   padding: 4px;
+}
+
+fieldset li, fieldset li a {
+   border-bottom: 1px dotted silver;
+   font-size: 12px;
+   text-decoration: none;
+   padding: 3px;
+}
+
+fieldset li a {
+   border-bottom: none;
+   display: block;
+   margin: 0px;
+   padding: 0px;
+}
+
+fieldset li {
+   display: block;
+   padding: 3px;
+}
+
+fieldset li.selected {
+   font-weight: bold
+}
+
+fieldset li:hover, fieldset li a:hover {
+   background-color: #D2D2D2;
+}
+
+fieldset li.selected:hover, fieldset li.nodata:hover {
+   background-color: #EEEEEE;
+}
+
+fieldset li a:active, fieldset li a:visited, fieldset li a:link {
+   color: blue;
+}
+
+legend {
+   font-size: 20px;
+   font-weight: bold;
+   color: navy;
+}
+
+.form_error {
+   color: red;
+}

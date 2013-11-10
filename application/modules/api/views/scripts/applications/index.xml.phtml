@@ -1,0 +1,29 @@
+<?php
+
+if ($this->success) {
+   // Check whether any results were found
+   if (count($this->applications) > 0) {
+      // Loop through the array and print out the required XML
+      $this->response->setHttpResponseCode(200);
+      print '<?xml version="1.0"?>';
+      print '<status></status>';
+      print '<applications>';
+         foreach ($this->applications as $application) {
+            print '<application>';
+               print '<id>'.$application['id'].'</id>';
+               print '<name>'.$application['name'].'</name>';
+               print '<created>'.$application['created'].'</created>';
+            print '</application>';
+         }
+      print '</applications>';
+      print '<errors>';
+      print '</errors>';
+   } else {
+      // No applications found - return a 404
+      $this->response->setHttpResponseCode(404);
+   }
+} else {
+   // Respond with an error
+   $this->response->setHttpResponseCode(500);
+}
+?>

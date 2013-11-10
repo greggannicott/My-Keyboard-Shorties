@@ -1,0 +1,3 @@
+<p>Are you sure you want to delete the sub-section <b><?php echo $this->subsection->getName(); ?></b>?</p>
+
+[ <a href="<?php echo $this->url(array('controller'=>'subsections','action'=>'delete','id'=>$this->shortcut->getId(),'delete'=>'true'),'default',true)?>">Yes</a> ] [ <a href="<?php echo $this->url(array('controller'=>'shortcuts','action'=>'index'),'default',true)?>">No</a> ]

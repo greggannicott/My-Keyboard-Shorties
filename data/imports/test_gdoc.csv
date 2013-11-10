@@ -1,0 +1,6 @@
+Section,Shortcut,Action,Description (optional)
+Editor,ctlr + a,Action 1,Test Description 1
+"Finding, Searching and Replacing",ctrl + b,Action 2,Test Description 2
+"Finding, Searching and Replacing",ctlr + c,Action 3,Test Description 3
+Editor,ctrl + d,Action 4,Test Description 4
+Navigating through Source Code,ctlr + e,Action 5,Test Description 5

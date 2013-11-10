@@ -1,0 +1,12 @@
+#settings dl dt a {
+   font-weight: bold;
+   clear: left;
+   float: left;
+   width: 12em;
+   text-decoration: none;
+   font-size: 12px;
+}
+#settings dl dd {
+   color: #585858;
+   font-size: 12px;
+}

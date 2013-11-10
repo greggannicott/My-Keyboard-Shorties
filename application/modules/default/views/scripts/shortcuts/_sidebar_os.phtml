@@ -1,0 +1,24 @@
+<?php $this->placeholder('sidebar')->captureStart() ?>
+<legend>Operating System</legend>
+<ul>
+<?php
+   $user_os = My_Plugin_User::ReturnUserOs();
+
+   if ($user_os == 'windows') {
+      print '<li class="selected">Windows</li>';
+   } else {
+      print '<li><a href="'.$this->url(array('controller'=>'usersettings', 'action'=>'changeos', 'application_id'=>$this->application->id, 'os'=>'windows'),'default', true) .'">Windows</a></li>';
+   }
+   if ($user_os == 'mac') {
+      print '<li class="selected">Mac OS</li>';
+   } else {
+      print '<li><a href="'.$this->url(array('controller'=>'usersettings', 'action'=>'changeos', 'application_id'=>$this->application->id, 'os'=>'mac'),'default', true) .'">Mac OS</a></li>';
+   }
+   if ($user_os == 'linux') {
+      print '<li class="selected">Linux</li>';
+   } else {
+      print '<li><a href="'.$this->url(array('controller'=>'usersettings', 'action'=>'changeos', 'application_id'=>$this->application->id, 'os'=>'linux'),'default', true) .'">Linux</a></li>';
+   }
+?>
+</ul>
+<?php $this->placeholder('sidebar')->captureEnd() ?>

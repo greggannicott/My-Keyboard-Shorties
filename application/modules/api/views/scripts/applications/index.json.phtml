@@ -1,0 +1,16 @@
+<?php
+if ($this->success) {
+   // Check whether any results were found
+   if (count($this->applications) > 0) {
+      $this->response->setHttpResponseCode(200);
+      echo  $this->json($this->applications);
+      return;
+   } else {
+      // No applications found - return a 404
+      $this->response->setHttpResponseCode(404);
+   }
+} else {
+   // Respond with an error
+   $this->response->setHttpResponseCode(500);
+}
+?>
